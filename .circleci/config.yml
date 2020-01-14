@@ -9,4 +9,4 @@ jobs:
           command: |
             TAG="circleci"
             docker build -t subgit:${TAG} .
-            docker run -ti --rm --name subgit subgit:${TAG} --version
+            docker run -ti --rm --name subgit subgit:${TAG} subgit --version
