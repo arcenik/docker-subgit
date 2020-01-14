@@ -67,3 +67,4 @@ docker history --no-trunc=true polinux/subgit | tr -s ' ' | tail -n+2 | awk -F "
 ## Author
 
 Przemyslaw Ozgo (<linux@ozgo.info>)
+Francois Scala (<github@arcenik.net>)
