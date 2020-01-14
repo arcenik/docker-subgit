@@ -1,6 +1,6 @@
-FROM alpine:3.1
+FROM alpine:3.11
 
-ENV SUBGIT_VERSION=3.2.5
+ENV SUBGIT_VERSION=3.3.9
 
 RUN \
   apk add --update curl bash openjdk7-jre && \
@@ -10,4 +10,5 @@ RUN \
   mv /tmp/subgit-${SUBGIT_VERSION} /usr/local/bin/subgit && \
   ln -s /usr/local/bin/subgit/bin/subgit /bin/subgit
 
-WORKDIR ['/subgit']
+WORKDIR '/repo'
+
