@@ -1,0 +1,12 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: Build Docker image
+          command: |
+            TAG="circleci"
+            docker build -t subgit:${TAG} .
+            docker run -ti --rm --name subgit subgit:${TAG} subgit --version
