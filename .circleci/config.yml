@@ -1,15 +1,13 @@
-machine:
-  services:
-    - docker
-
-dependencies:
-  pre:
-    - docker info && docker version
-
-test:
-  pre:
-    - docker build -t polinux/subgit:circleci .
-
-  override:
-  # Start subgit
-    - docker run -ti --name subgit polinux/subgit:circleci subgit help import
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: alpine:3.11
+    steps:
+      - checkout
+      - run:
+        name: Build Docker image
+        command: |
+          TAG="circleci"
+          docker build -t subgit:${TAG} .
+          docker run -ti --rm --name subgit subgit:${TAG} --version
